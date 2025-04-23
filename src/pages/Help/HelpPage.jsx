@@ -11,6 +11,7 @@ const HelpPage = () => {
             <h1 className=" text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
               Ayuda
             </h1>
+          </header>
             <div className="mb-42 mt-12 text-xl">
               <h2>
                 <a
@@ -28,14 +29,18 @@ const HelpPage = () => {
                   Cómo agregar una actividad
                 </a>
               </h2>
+              <h2>
+                <a
+                  href="https://flowbite.com"
+                  className="text-blue-600 hover:underline dark:text-blue-500"
+                >
+                  Cómo agregar una profesor
+                </a>
+              </h2>
             </div>
-          </header>
           <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
             Cómo agregar un cliente
           </h2>
-
-          <p className="lead ">Pasos para agregar un cliente. En el panel ir a Nuevo Cliente, ir a la tarjeta verde y hacer click en "Organizar". Se abre el formulario para completar los datos.
-       </p>
 
           <div className="my-6">
             <video
@@ -43,8 +48,7 @@ const HelpPage = () => {
               src="/agregar-cliente.mp4"
               alt="Digital art"
               className="w-full rounded-lg"
-              autoPlay
-              loop
+              controls
             /> 
           </div>
 
@@ -52,21 +56,31 @@ const HelpPage = () => {
             Cómo agregar una actividad
           </h2>
 
-          <p className="lead ">Pasos para agregar una actividad. En el panel ir a Nuevo actividad, ir a la tarjeta roja y hacer click en "Crear ahora". Se abre el formulario para completar los datos DNI, nombre, correo electrónico, dirección y teléfono. Una vez completado, guardás y listo.
-       </p>
-
           <div className="my-6">
             <video
               // src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png"
               src="/agregar-actividad.mp4"
               alt="Digital art"
               className="w-full rounded-lg"
-              autoPlay
-              loop
+              controls
             />
-            {/* <figcaption className="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">
-              Digital art by Anonymous
-            </figcaption> */}
+          </div>
+
+          <h2 className="mb-4 mt-28 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
+            Cómo agregar una profesor
+          </h2>
+
+          {/* <p className="lead ">Pasos para agregar una actividad. En el panel ir a Nuevo actividad, ir a la tarjeta roja y hacer click en "Crear ahora". Se abre el formulario para completar los datos DNI, nombre, correo electrónico, dirección y teléfono. Una vez completado, guardás y listo.
+       </p> */}
+
+          <div className="my-6">
+            <video
+              // src="https://flowbite.s3.amazonaws.com/typography-plugin/typography-image-1.png"
+              src="/agregar-profe.mp4"
+              alt="Digital art"
+              className="w-full rounded-lg"
+              controls
+            />
           </div>
 
           
