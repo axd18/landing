@@ -5,7 +5,8 @@ const HelpPage = () => {
   const sections = [
     { id: "agregar-cliente", title: "Cómo agregar un cliente" },
     { id: "agregar-actividad", title: "Cómo agregar una actividad" },
-    { id: "agregar-profesor", title: "Cómo agregar un profesor" }
+    { id: "agregar-profesor", title: "Cómo agregar un profesor" },
+    { id: "cargar-horas", title: "Cómo agregar cargar horas y montos de los profesores"}
   ];
 
   return (
@@ -79,6 +80,20 @@ const HelpPage = () => {
             <div className="my-6">
               <video
                 src="/agregar-profe.mp4"
+                alt="Video tutorial: Cómo agregar un profesor"
+                className="w-full rounded-lg shadow-md"
+                controls
+              />
+            </div>
+          </section>
+          {/* Sección de agregar profesor */}
+          <section id="cargar-horas" className="scroll-mt-20 mt-28">
+            <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
+              Cómo agregar cargar horas y montos de los profesores
+            </h2>
+            <div className="my-6">
+              <video
+                src="#"
                 alt="Video tutorial: Cómo agregar un profesor"
                 className="w-full rounded-lg shadow-md"
                 controls
