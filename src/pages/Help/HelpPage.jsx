@@ -1,13 +1,13 @@
 import React from "react";
+import helpSections from "@/data/helpSections.json";
 
 const HelpPage = () => {
-  // IDs para las secciones de anclaje
-  const sections = [
-    { id: "agregar-cliente", title: "Cómo agregar un cliente" },
-    { id: "agregar-actividad", title: "Cómo agregar una actividad" },
-    { id: "agregar-profesor", title: "Cómo agregar un profesor" },
-    { id: "cargar-horas", title: "Cómo agregar cargar horas y montos de los profesores"}
-  ];
+  const handleScroll = (id) => (e) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-slate-200">
@@ -17,93 +17,63 @@ const HelpPage = () => {
             <h1 className="text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
               Ayuda
             </h1>
-            <h2 className="font-regular mb-12 text-xl">Videos cortos que te guían paso a paso de forma fácil y rápida.</h2>
+            <h2 className="font-regular mb-12 text-xl">
+              Videos cortos que te guían paso a paso de forma fácil y rápida.
+            </h2>
           </header>
           
-          {/* Menú de enlaces ancla */}
-          <div className="mb-24 mt-12 text-l">
-            <ul className="space-y-1">
-              {sections.map((section) => (
-                <li key={section.id}>
-                  <a
-                    href={`#${section.id}`}
-                    className="text-blue-600 hover:underline dark:text-blue-500"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById(section.id)?.scrollIntoView({
-                        behavior: 'smooth'
-                      });
-                    }}
-                  >
-                    {section.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Sección de agregar cliente */}
-          <section id="agregar-cliente" className="scroll-mt-20">
-            <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
-              Cómo agregar un cliente
-            </h2>
-            <div className="my-6">
-              <video
-                src="/agregar-cliente.mp4"
-                alt="Video tutorial: Cómo agregar un cliente"
-                className="w-full rounded-lg shadow-md"
-                controls
-              />
-            </div>
-          </section>
-
-          {/* Sección de agregar actividad */}
-          <section id="agregar-actividad" className="scroll-mt-20 mt-28">
-            <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
-              Cómo agregar una actividad
-            </h2>
-            <div className="my-6">
-              <video
-                src="/agregar-actividad.mp4"
-                alt="Video tutorial: Cómo agregar una actividad"
-                className="w-full rounded-lg shadow-md"
-                controls
-              />
-            </div>
-          </section>
-
-          {/* Sección de agregar profesor */}
-          <section id="agregar-profesor" className="scroll-mt-20 mt-28">
-            <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
-              Cómo agregar un profesor
-            </h2>
-            <div className="my-6">
-              <video
-                src="/agregar-profe.mp4"
-                alt="Video tutorial: Cómo agregar un profesor"
-                className="w-full rounded-lg shadow-md"
-                controls
-              />
-            </div>
-          </section>
-          {/* Sección de agregar profesor */}
-          <section id="cargar-horas" className="scroll-mt-20 mt-28">
-            <h2 className="mb-4 text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
-              Cómo agregar cargar horas y montos de los profesores
-            </h2>
-            <div className="my-6">
-              <video
-                src="#"
-                alt="Video tutorial: Cómo agregar un profesor"
-                className="w-full rounded-lg shadow-md"
-                controls
-              />
-            </div>
-          </section>
+          <SectionLinks sections={helpSections} handleScroll={handleScroll} />
+          
+          {helpSections.map((section, index) => (
+            <HelpSection 
+              key={section.id}
+              section={section}
+              isFirst={index === 0}
+            />
+          ))}
         </article>
       </div>
     </main>
   );
 };
+
+// Componente para los enlaces de sección
+const SectionLinks = ({ sections, handleScroll }) => (
+  <div className="mb-24 mt-12 text-l">
+    <ul className="space-y-1">
+      {sections.map((section) => (
+        <li key={section.id}>
+          <a
+            href={`#${section.id}`}
+            className="text-blue-600 hover:underline dark:text-blue-500"
+            onClick={handleScroll(section.id)}
+          >
+            {section.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+// Componente para cada sección de ayuda
+const HelpSection = ({ section, isFirst }) => (
+  <section 
+    id={section.id} 
+    className={`scroll-mt-20 ${!isFirst ? 'mt-28' : ''}`}
+  >
+    <h2 className="mb-4 text-2xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
+      {section.title}
+    </h2>
+    <div className="my-6">
+      <video
+        src={section.videoSrc}
+        alt={section.altText}
+        className="w-full rounded-lg shadow-md"
+        controls
+      />
+    </div>
+  </section>
+);
 
 export default HelpPage;

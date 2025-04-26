@@ -1,0 +1,32 @@
+[
+    {
+      "id": "agregar-cliente",
+      "title": "Cómo agregar un cliente",
+      "videoSrc": "/agregar-cliente.mp4",
+      "altText": "Video tutorial: Cómo agregar un cliente"
+    },
+    {
+      "id": "agregar-actividad",
+      "title": "Cómo agregar una actividad",
+      "videoSrc": "/agregar-actividad.mp4",
+      "altText": "Video tutorial: Cómo agregar una actividad"
+    },
+    {
+      "id": "agregar-profesor",
+      "title": "Cómo agregar un profesor",
+      "videoSrc": "/agregar-profe.mp4",
+      "altText": "Video tutorial: Cómo agregar un profesor"
+    },
+    {
+      "id": "cargar-horas",
+      "title": "Cómo cargar horas y montos de los profesores",
+      "videoSrc": "#",
+      "altText": "Video tutorial: Cómo cargar horas y montos"
+    },
+    {
+        "id": "asignar-espacio-yoga",
+        "title": "Asignar un espacio para la clase de yoga",
+        "videoSrc": "/asignar-espacio-yoga.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de yoga"
+      }
+  ]
