@@ -1,4 +1,5 @@
 import React from "react";
+import FeatureSection from "./FeatureSection";
 
 const LandingPage = () => {
   return (
@@ -75,6 +76,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+        <FeatureSection />
     </div>
   );
 };
