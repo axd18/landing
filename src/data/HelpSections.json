@@ -28,5 +28,11 @@
         "title": "Asignar un espacio para la clase de yoga",
         "videoSrc": "/asignar-espacio-yoga.mp4",
         "altText": "Video tutorial: Asignar un espacio para la clase de yoga"
+      },
+      {
+        "id": "asignar-espacio-stretching",
+        "title": "Asignar un espacio para la clase de stretching",
+        "videoSrc": "/asignar-espacio-stretching.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de stretching"
       }
   ]

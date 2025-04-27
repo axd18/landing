@@ -62,7 +62,7 @@ const HelpSection = ({ section, isFirst }) => (
     id={section.id} 
     className={`scroll-mt-20 ${!isFirst ? 'mt-28' : ''}`}
   >
-    <h2 className="mb-4 text-2xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
+    <h2 className="mb-4 text-xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-2xl">
       {section.title}
     </h2>
     <div className="my-6">
