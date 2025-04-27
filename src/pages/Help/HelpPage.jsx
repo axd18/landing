@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import helpSections from "@/data/helpSections.json";
+const helpSections = require("@/data/helpSections.json")
+// import helpSections from "@/data/helpSections.json";
 
 const HelpPage = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
