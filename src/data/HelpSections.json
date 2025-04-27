@@ -64,5 +64,11 @@
         "title": "Asignar un espacio para la clase de jujitsu",
         "videoSrc": "/asignar-espacio-jujitsu.mp4",
         "altText": "Video tutorial: Asignar un espacio para la clase de jujitsu"
+      },
+      {
+        "id": "asignar-espacio-kickboxing",
+        "title": "Asignar un espacio para la clase de kickboxing",
+        "videoSrc": "/asignar-espacio-kickboxing.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de kickboxing"
       }
   ]
