@@ -70,5 +70,11 @@
         "title": "Asignar un espacio para la clase de kickboxing",
         "videoSrc": "/asignar-espacio-kickboxing.mp4",
         "altText": "Video tutorial: Asignar un espacio para la clase de kickboxing"
+      },
+      {
+        "id": "editar-actividades",
+        "title": "Editar actividades",
+        "videoSrc": "/editar-actividades.mp4",
+        "altText": "Video tutorial: Editar actividades"
       }
   ]
