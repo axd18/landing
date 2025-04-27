@@ -34,5 +34,11 @@
         "title": "Asignar un espacio para la clase de stretching",
         "videoSrc": "/asignar-espacio-stretching.mp4",
         "altText": "Video tutorial: Asignar un espacio para la clase de stretching"
+      },
+      {
+        "id": "asignar-espacio-jumping",
+        "title": "Asignar un espacio para la clase de jumping trump",
+        "videoSrc": "/asignar-espacio-jumping.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de jumping trump"
       }
   ]
