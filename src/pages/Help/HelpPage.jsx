@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-const helpSections = require("@/data/helpSections.json")
-// import helpSections from "@/data/helpSections.json";
+import helpSections from "@/data/helpSections.json";
 
 const HelpPage = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -8,14 +7,14 @@ const HelpPage = () => {
   const handleScroll = (id) => (e) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
@@ -28,8 +27,8 @@ const HelpPage = () => {
       }
     };
 
-    window.addEventListener('scroll', checkScroll);
-    return () => window.removeEventListener('scroll', checkScroll);
+    window.addEventListener("scroll", checkScroll);
+    return () => window.removeEventListener("scroll", checkScroll);
   }, []);
 
   return (
@@ -68,11 +67,11 @@ const HelpPage = () => {
               Videos cortos que te guían paso a paso de forma fácil y rápida.
             </h2>
           </header>
-          
+
           <SectionLinks sections={helpSections} handleScroll={handleScroll} />
-          
+
           {helpSections.map((section, index) => (
-            <HelpSection 
+            <HelpSection  // Corregido: Debe ser HelpSection con mayúscula
               key={section.id}
               section={section}
               isFirst={index === 0}
@@ -105,9 +104,9 @@ const SectionLinks = ({ sections, handleScroll }) => (
 
 // Componente para cada sección de ayuda
 const HelpSection = ({ section, isFirst }) => (
-  <section 
-    id={section.id} 
-    className={`scroll-mt-20 ${!isFirst ? 'mt-28' : ''}`}
+  <section
+    id={section.id}
+    className={`scroll-mt-20 ${!isFirst ? "mt-28" : ""}`}
   >
     <h2 className="mb-4 text-xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-2xl">
       {section.title}
