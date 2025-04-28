@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import helpSections from "@/data/helpSections.json";
+// import helpSections from "@/data/helpSections.json";
 
 const HelpPage = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
@@ -30,6 +30,87 @@ const HelpPage = () => {
     window.addEventListener("scroll", checkScroll);
     return () => window.removeEventListener("scroll", checkScroll);
   }, []);
+
+  const helpSections = [
+    {
+      "id": "agregar-cliente",
+      "title": "Cómo agregar un cliente",
+      "videoSrc": "/agregar-cliente.mp4",
+      "altText": "Video tutorial: Cómo agregar un cliente"
+    },
+    {
+      "id": "agregar-actividad",
+      "title": "Cómo agregar una actividad",
+      "videoSrc": "/agregar-actividad.mp4",
+      "altText": "Video tutorial: Cómo agregar una actividad"
+    },
+    {
+      "id": "agregar-profesor",
+      "title": "Cómo agregar un profesor",
+      "videoSrc": "/agregar-profe.mp4",
+      "altText": "Video tutorial: Cómo agregar un profesor"
+    },
+    {
+      "id": "cargar-horas",
+      "title": "Cómo cargar horas y montos de los profesores",
+      "videoSrc": "#",
+      "altText": "Video tutorial: Cómo cargar horas y montos"
+    },
+    {
+        "id": "asignar-espacio-yoga",
+        "title": "Asignar un espacio para la clase de yoga",
+        "videoSrc": "/asignar-espacio-yoga.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de yoga"
+      },
+      {
+        "id": "asignar-espacio-stretching",
+        "title": "Asignar un espacio para la clase de stretching",
+        "videoSrc": "/asignar-espacio-stretching.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de stretching"
+      },
+      {
+        "id": "asignar-espacio-jumping",
+        "title": "Asignar un espacio para la clase de jumping trump",
+        "videoSrc": "/asignar-espacio-jumping.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de jumping trump"
+      },
+      {
+        "id": "asignar-espacio-funcional",
+        "title": "Asignar un espacio para la clase de funcional",
+        "videoSrc": "/asignar-espacio-funcional.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de funcional"
+      },
+      {
+        "id": "asignar-espacio-boxeo",
+        "title": "Asignar un espacio para la clase de boxeo",
+        "videoSrc": "/asignar-espacio-boxeo.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de boxeo"
+      },
+      {
+        "id": "asignar-espacio-gap",
+        "title": "Asignar un espacio para la clase de gap",
+        "videoSrc": "/asignar-espacio-gap.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de gap"
+      },
+      {
+        "id": "asignar-espacio-jujitsu",
+        "title": "Asignar un espacio para la clase de jujitsu",
+        "videoSrc": "/asignar-espacio-jujitsu.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de jujitsu"
+      },
+      {
+        "id": "asignar-espacio-kickboxing",
+        "title": "Asignar un espacio para la clase de kickboxing",
+        "videoSrc": "/asignar-espacio-kickboxing.mp4",
+        "altText": "Video tutorial: Asignar un espacio para la clase de kickboxing"
+      },
+      {
+        "id": "editar-actividades",
+        "title": "Editar actividades",
+        "videoSrc": "/editar-actividades.mp4",
+        "altText": "Video tutorial: Editar actividades"
+      }
+  ]
 
   return (
     <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-slate-200 relative">
