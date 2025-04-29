@@ -109,6 +109,12 @@ const HelpPage = () => {
         "title": "Editar actividades",
         "videoSrc": "/editar-actividades.mp4",
         "altText": "Video tutorial: Editar actividades"
+      },
+      {
+        "id": "registro-pago",
+        "title": "Registro de pago",
+        "videoSrc": "/registro-pago.mp4",
+        "altText": "Video tutorial: registro de pago"
       }
   ]
 
