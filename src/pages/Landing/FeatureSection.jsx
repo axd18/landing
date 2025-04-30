@@ -16,8 +16,8 @@ const FeatureSection = () => {
                     <path d="M13 29H1V41C1 43.209 2.791 45 5 45H13V29Z" fill="#D4D4D8" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                     <path d="M45 29H33V45H41C43.209 45 45 43.209 45 41V29Z" fill="#D4D4D8" stroke="#161616" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Support</h3>
-                <p className="mt-5 text-base text-gray-600 font-pj">Lorem ipsum dolor sit amet, consectetur adipis elit. Sit enim nec, proin faucibus nibh et sagittis a. Lacinia purus ac amet.</p>
+                <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Asignar camas para pilates</h3>
+                <p className="mt-5 text-base text-gray-600 font-pj">Gestiona la ocupación de las camas notificandote cuales están libres y cuales ocupadas</p>
             </div>
 
             <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200">
