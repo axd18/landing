@@ -2,7 +2,7 @@ import React from "react";
 import FeatureSection from "./FeatureSection";
 import GestionCamas from "./GestionCamas";
 import Hero from './Hero';
-import RegistroAlumnos from "./RegistroAlumnos";
+import RegistroAsistencias from "./RegistroAsistencias";
 
 const LandingPage = () => {
   return (
@@ -10,7 +10,7 @@ const LandingPage = () => {
         <Hero />
         <FeatureSection />
         <GestionCamas />
-        <RegistroAlumnos />
+        <RegistroAsistencias />
     </div>
   );
 };

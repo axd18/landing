@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-const RegistroAlumnos = () => {
+const RegistroAsistencias = () => {
     return (
         <section className="py-10 bg-white sm:py-16 lg:py-24">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -12,9 +12,14 @@ const RegistroAlumnos = () => {
 
                         <a href="#" title="" className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700" role="button">Conocé más</a>
                     </div>
-                    <div>
-                        <img className="w-full max-w-md mx-auto" src="https://cdn.rareblocks.xyz/collection/celebration/images/integration/2/services-icons.png" alt="" />
-                    </div>
+                    <div className="relative mx-auto aspect-video max-w-2xl overflow-hidden rounded-xl shadow-2xl lg:max-w-none">
+            <img
+              src="/dashboard-verificaciones.webp"
+              alt="Vista previa del administrador Crossfy para estudios de pilates"
+              className="h-full w-full object-cover object-center"
+              loading="lazy"
+            />
+          </div>
 
                 </div>
             </div>
@@ -22,4 +27,4 @@ const RegistroAlumnos = () => {
     );
 }
 
-export default RegistroAlumnos;
+export default RegistroAsistencias;
