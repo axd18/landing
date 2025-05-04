@@ -1,4 +1,5 @@
 import React from "react";
+import Carousel from "../../components/Carousel";
 
 const Hero = () => {
   const handleSubmit = (e) => {
@@ -13,7 +14,7 @@ const Hero = () => {
       {/* Fondo de imagen - Añade tu imagen aquí */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/bg-hero-02.webp"  // Reemplaza con la ruta de tu imagen
+          src="/bg-hero-02.webp" // Reemplaza con la ruta de tu imagen
           alt="Fondo del hero"
           className="object-cover object-center"
         />
@@ -30,8 +31,8 @@ const Hero = () => {
           </h1>
 
           <p className="mt-6 text-lg text-slate-800 sm:text-xl">
-            Lleva la gestión integral de tu centro de pilates.
-            Una solución diseñada a medida.
+            Lleva la gestión integral de tu centro de pilates. Una solución
+            diseñada a medida.
           </p>
 
           {/* Formulario */}
@@ -45,7 +46,7 @@ const Hero = () => {
                 className="flex-1 rounded-lg border-2 border-gray-300 bg-white/90 px-4 py-3 text-base focus:border-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-200"
                 placeholder="tucorreo@ejemplo.com"
               />
-              <button 
+              <button
                 type="submit"
                 className="cursor-pointer rounded-lg bg-slate-950 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-8"
               >
@@ -53,8 +54,7 @@ const Hero = () => {
               </button>
             </div>
           </form>
-
-        
+          <Carousel />
         </div>
 
         {/* Sección de imagen */}
