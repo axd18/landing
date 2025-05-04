@@ -16,7 +16,9 @@ const Hero = () => {
         <img
           src="/bg-hero-02.webp" // Reemplaza con la ruta de tu imagen
           alt="Fondo del hero"
-          className="object-cover object-center"
+          // className="w-screen h-auto min-w-[100vw] object-cover object-center
+          //    md:w-full md:h-full md:min-w-[unset]"
+          className="w-full h-full object-cover object-center md:object-left-top"
         />
         {/* Capa oscura para mejorar legibilidad del texto */}
         {/* <div className="absolute inset-0 bg-black/30"></div> */}

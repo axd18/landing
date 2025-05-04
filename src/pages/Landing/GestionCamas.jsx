@@ -26,7 +26,7 @@ const GestionCamas = () => {
             <a
               href="#"
               title=""
-              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-blue-600 rounded-md mt-9 hover:bg-blue-700 focus:bg-blue-700"
+              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md mt-9 hover:bg-slate-700 focus:bg-slate-700"
               role="button"
             >
               Conocé más
