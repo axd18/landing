@@ -14,19 +14,115 @@ const GestionCamas = () => {
             />
           </div>
 
-          <div className="text-center lg:text-left">
+          <div className="text-left lg:text-left">
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Gestioná las camas
             </h2>
-            <p className="mt-6 text-base text-gray-600">
+            <p className="mt-6 text-lg text-gray-600">
               Gestiona la ocupación de las camas, revisa de manera sencilla
               cuales están libres y cuales ocupadas.
             </p>
+            {/* Bullet Points */}
+            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {/* Bullet 1 */}
+              <div className="flex items-start mb-10">
+                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-purple-200 flex items-center justify-center">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <p className="ml-3 text-md text-gray-700">
+                  <span className="font-bold">Control en tiempo real:</span>{" "}
+                  Visualiza qué camas están ocupadas, reservadas o libres desde
+                  cualquier dispositivo.
+                </p>
+              </div>
+
+              {/* Bullet 2 */}
+              <div className="flex items-start mb-10">
+                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-green-200 flex items-center justify-center">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <p className="ml-3 text-md text-gray-700">
+                  <span className="font-bold">Reduce errores:</span> Elimina los
+                  agendamientos manuales y los problemas de "cama ya ocupada".
+                </p>
+              </div>
+
+              {/* Bullet 3 */}
+              <div className="flex items-start mb-10">
+                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-amber-200 flex items-center justify-center">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <p className="ml-3 text-md text-gray-700">
+                  <span className="font-bold">Clientes satisfechos:</span>{" "}
+                  Permite que reserven fácilmente (web/app) y reciban
+                  recordatorios automáticos.
+                </p>
+              </div>
+
+              {/* Bullet 4 */}
+              <div className="flex items-start mb-10">
+                <div className="flex-shrink-0 w-8 h-8 rounded-md bg-sky-200 flex items-center justify-center">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <p className="ml-3 text-md text-gray-700">
+                  <span className="font-bold">Reduce errores:</span> Identifica
+                  horarios pico y distribuye mejor las sesiones.
+                </p>
+              </div>
+            </div>
 
             <a
               href="#"
               title=""
-              className="inline-flex items-center justify-center px-8 py-4 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md mt-9 hover:bg-slate-700 focus:bg-slate-700"
+              className="flex items-center justify-center w-full px-8 py-4 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md mt-9 hover:bg-slate-700 focus:bg-slate-700 md:inline-flex md:w-auto"
               role="button"
             >
               Conocé más
