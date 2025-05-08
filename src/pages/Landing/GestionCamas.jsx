@@ -18,7 +18,7 @@ const GestionCamas = () => {
             <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
               Gestioná las camas
             </h2>
-            <p className="mt-6 text-lg text-gray-600">
+            <p className="mt-6 mb-12 text-2xl text-gray-600">
               Gestiona la ocupación de las camas, revisa de manera sencilla
               cuales están libres y cuales ocupadas.
             </p>
@@ -125,7 +125,7 @@ const GestionCamas = () => {
               className="flex items-center justify-center w-full px-8 py-4 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md mt-9 hover:bg-slate-700 focus:bg-slate-700 md:inline-flex md:w-auto"
               role="button"
             >
-              Conocé más
+            Optimizar mi centro de Pilates
             </a>
           </div>
         </div>
