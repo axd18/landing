@@ -5,7 +5,7 @@ const FeatureSection = () => {
         <section className="py-12 bg-white sm:py-16 lg:py-20">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl xl:text-5xl font-pj">Funcionalidades que te van ayudar con la organización</h2>
+                    <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl xl:text-5xl font-pj">Podrás mejorar tu eficiencia y simplificar tu día a día</h2>
                     {/* <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Lorem ipsum dolor sit amet, consectetur adipis elit</p> */}
                 </div>
 

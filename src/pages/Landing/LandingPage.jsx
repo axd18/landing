@@ -1,8 +1,9 @@
-import React from "react";
 import FeatureSection from "./FeatureSection";
 import GestionCamas from "./GestionCamas";
 import Hero from './Hero';
 import RegistroAsistencias from "./RegistroAsistencias";
+import Testimonio from "./Testimonio";
+import CardsTestimonios from "./CardsTestimonios";
 
 const LandingPage = () => {
   return (
@@ -11,6 +12,8 @@ const LandingPage = () => {
         <FeatureSection />
         <GestionCamas />
         <RegistroAsistencias />
+        <Testimonio />
+        <CardsTestimonios />
     </div>
   );
 };
