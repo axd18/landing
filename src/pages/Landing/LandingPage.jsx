@@ -6,10 +6,12 @@ import Testimonio from "./Testimonio";
 import CardsTestimonios from "./CardsTestimonios";
 import Faq from "./Faq";
 import Footer from "../../components/Footer";
+import WhatsAppButton from "../../components/WhatsAppButton";
 
 const LandingPage = () => {
   return (
     <div className="min-h-screen w-full overflow-x-hidden">
+        <WhatsAppButton />
         <Hero />
         <FeatureSection />
         <GestionCamas />
