@@ -1,27 +1,45 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Carousel from "../../components/Carousel";
+import { sendForm } from '@emailjs/browser';
 
 const Hero = () => {
-  const handleSubmit = (e) => {
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [message, setMessage] = useState({ text: '', isError: false });
+
+  const sendEmail = (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    console.log("Email enviado:", email);
-    // Aquí puedes agregar la lógica para enviar el email
+    setIsSending(true);
+    setMessage({ text: '', isError: false });
+
+    sendForm(
+      'service_uvp3zfp',
+      'template_4kw8ogd',
+      form.current,
+      'TPkXvgu0fzO4vU7Hx'
+    )
+      .then((result) => {
+        console.log(result.text);
+        setMessage({ text: '¡Demo solicitada con éxito! Te contactaremos pronto.', isError: false });
+        form.current.reset();
+      }, (error) => {
+        console.log(error.text);
+        setMessage({ text: 'Error al enviar la solicitud. Por favor intenta nuevamente.', isError: true });
+      })
+      .finally(() => {
+        setIsSending(false);
+      });
   };
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      {/* Fondo de imagen - Añade tu imagen aquí */}
+      {/* Fondo de imagen */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/bg-hero-02.webp" // Reemplaza con la ruta de tu imagen
+          src="/bg-hero-02.webp"
           alt="Fondo del hero"
-          // className="w-screen h-auto min-w-[100vw] object-cover object-center
-          //    md:w-full md:h-full md:min-w-[unset]"
           className="w-full h-full object-cover object-center md:object-left-top"
         />
-        {/* Capa oscura para mejorar legibilidad del texto */}
-        {/* <div className="absolute inset-0 bg-black/30"></div> */}
       </div>
 
       {/* Contenido principal */}
@@ -38,7 +56,7 @@ const Hero = () => {
           </p>
 
           {/* Formulario */}
-          <form onSubmit={handleSubmit} className="mt-8">
+          <form ref={form} onSubmit={sendEmail} className="mt-8">
             <h2 className="text-lg font-medium text-slate-900">Pedí la demo</h2>
             <div className="mt-4 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
               <input
@@ -47,28 +65,38 @@ const Hero = () => {
                 required
                 className="flex-1 rounded-lg border-2 border-gray-300 bg-white/90 px-4 py-3 text-base focus:border-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-200"
                 placeholder="tucorreo@ejemplo.com"
+                disabled={isSending}
               />
               <button
                 type="submit"
-                className="cursor-pointer rounded-lg bg-slate-950 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-8"
+                disabled={isSending}
+                className={`cursor-pointer rounded-lg bg-slate-950 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-8 ${
+                  isSending ? 'opacity-70 cursor-not-allowed' : ''
+                }`}
               >
-                Recibí la demo
+                {isSending ? 'Enviando...' : 'Recibí la demo'}
               </button>
             </div>
+            {message.text && (
+              <p className={`mt-3 text-sm ${
+                message.isError ? 'text-red-600' : 'text-green-600'
+              }`}>
+                {message.text}
+              </p>
+            )}
           </form>
           <Carousel />
         </div>
 
         {/* Sección de imagen */}
-        <div className="order-1 w-full flex-1 ">
-          <div className="relative ">
+        <div className="order-1 w-full flex-1">
+          <div className="relative">
             <img
               src="/dashboard-gass-effect.webp"
               alt="Vista previa del administrador Crossfy para estudios de pilates"
               className="max-w-[750px] max-h-[500px] w-auto h-auto"
               loading="lazy"
             />
-            {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-transparent mix-blend-overlay"></div> */}
           </div>
         </div>
       </div>
