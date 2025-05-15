@@ -92,7 +92,7 @@ const Hero = () => {
         <div className="order-1 w-full flex-1">
           <div className="relative">
             <img
-              src="/dashboard-gass-effect.webp"
+              src="/img-hero.webp"
               alt="Vista previa del administrador Crossfy para estudios de pilates"
               className="max-w-[750px] max-h-[500px] w-auto h-auto"
               loading="lazy"
