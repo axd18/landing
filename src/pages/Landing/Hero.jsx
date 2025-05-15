@@ -46,7 +46,7 @@ const Hero = () => {
       <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:px-8 lg:py-0">
         {/* Sección de texto */}
         <div className="order-2 w-full max-w-2xl flex-1 py-8 lg:order-1 lg:py-0 lg:pr-8">
-          <h1 className="text-3xl font-bold leading-tight text-slate-800 sm:text-4xl md:text-5xl lg:text-6xl lg:leading-[1.2]">
+          <h1 className="text-4xl font-bold leading-tight text-slate-800 sm:text-4xl md:text-5xl lg:text-6xl lg:leading-[1.2]">
             El Software para Estudio de Pilates más completo
           </h1>
 
