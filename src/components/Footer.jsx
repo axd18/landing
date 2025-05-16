@@ -1,6 +1,43 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { sendForm } from "@emailjs/browser";
 
 const Footer = () => {
+  const form = useRef();
+    const [isSending, setIsSending] = useState(false);
+    const [message, setMessage] = useState({ text: "", isError: false });
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+      setIsSending(true);
+      setMessage({ text: "", isError: false });
+  
+      sendForm(
+        "service_uvp3zfp",
+        "template_4kw8ogd",
+        form.current,
+        "TPkXvgu0fzO4vU7Hx"
+      )
+        .then(
+          (result) => {
+            console.log(result.text);
+            setMessage({
+              text: "¡Demo solicitada con éxito! Te contactaremos pronto.",
+              isError: false,
+            });
+            form.current.reset();
+          },
+          (error) => {
+            console.log(error.text);
+            setMessage({
+              text: "Error al enviar la solicitud. Por favor intenta nuevamente.",
+              isError: true,
+            });
+          }
+        )
+        .finally(() => {
+          setIsSending(false);
+        });
+    };
   return (
     <section className="py-10 bg-gray-50 sm:pt-16 lg:pt-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -12,7 +49,7 @@ const Footer = () => {
               El Software para Estudio de Pilates más completo.
             </p>
 
-            <ul className="flex items-center space-x-3 mt-9">
+            {/* <ul className="flex items-center space-x-3 mt-9">
               <li>
                 <a
                   href="#"
@@ -86,7 +123,7 @@ const Footer = () => {
                   </svg>
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
 
           <div>
@@ -195,17 +232,21 @@ const Footer = () => {
                 <input
                   type="email"
                   name="email"
-                  id="email"
-                  placeholder="Escribí tu mail"
+                  required
+                  placeholder="tucorreo@ejemplo.com"
+                  disabled={isSending}
                   className="block w-full p-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-blue-600 caret-blue-600"
                 />
               </div>
 
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md hover:bg-slate-700 focus:bg-blue-700 cursor-pointer"
+                className={`inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md hover:bg-slate-700 focus:bg-blue-700 cursor-pointer ${
+                    isSending ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
               >
-                Recibí la demo
+                {isSending ? "Enviando..." : "Recibí la demo"}
+                
               </button>
             </form>
           </div>

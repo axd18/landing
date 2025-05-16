@@ -1,6 +1,44 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { sendForm } from "@emailjs/browser";
 
 const GestionCamas = () => {
+  const form = useRef();
+  const [isSending, setIsSending] = useState(false);
+  const [message, setMessage] = useState({ text: "", isError: false });
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSending(true);
+    setMessage({ text: "", isError: false });
+
+    sendForm(
+      "service_uvp3zfp",
+      "template_4kw8ogd",
+      form.current,
+      "TPkXvgu0fzO4vU7Hx"
+    )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setMessage({
+            text: "¡Demo solicitada con éxito! Te contactaremos pronto.",
+            isError: false,
+          });
+          form.current.reset();
+        },
+        (error) => {
+          console.log(error.text);
+          setMessage({
+            text: "Error al enviar la solicitud. Por favor intenta nuevamente.",
+            isError: true,
+          });
+        }
+      )
+      .finally(() => {
+        setIsSending(false);
+      });
+  };
+
   return (
     <section className="py-10 bg-white sm:py-16 lg:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
@@ -119,14 +157,39 @@ const GestionCamas = () => {
               </div>
             </div>
 
-            <a
-              href="#"
-              title=""
-              className="flex items-center justify-center w-full px-8 py-4 font-semibold text-white transition-all duration-200 bg-slate-950 rounded-md mt-9 hover:bg-slate-700 focus:bg-slate-700 md:inline-flex md:w-auto"
-              role="button"
-            >
-            Optimizar mi centro de Pilates
-            </a>
+            <form ref={form} onSubmit={sendEmail} className="mt-8">
+              <h2 className="text-lg font-medium text-slate-900">
+                Pedí la demo
+              </h2>
+              <div className="mt-4 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-3">
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  className="flex-1 rounded-lg border-2 border-gray-300 bg-white/90 px-4 py-3 text-base focus:border-slate-950 focus:outline-none focus:ring-2 focus:ring-blue-200"
+                  placeholder="tucorreo@ejemplo.com"
+                  disabled={isSending}
+                />
+                <button
+                  type="submit"
+                  disabled={isSending}
+                  className={`cursor-pointer rounded-lg bg-slate-950 px-6 py-3 text-base font-medium text-white transition-colors hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 sm:px-8 ${
+                    isSending ? "opacity-70 cursor-not-allowed" : ""
+                  }`}
+                >
+                  {isSending ? "Enviando..." : "Recibí la demo"}
+                </button>
+              </div>
+              {message.text && (
+                <p
+                  className={`mt-3 text-sm ${
+                    message.isError ? "text-red-600" : "text-green-600"
+                  }`}
+                >
+                  {message.text}
+                </p>
+              )}
+            </form>
           </div>
         </div>
       </div>
