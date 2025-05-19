@@ -14,11 +14,11 @@ const Navbar = () => {
           <button className="rounded-lg border-2 border-slate-950 px-5 py-2 text-slate-950 font-medium hover:bg-slate-950 hover:text-white transition-colors cursor-pointer">
             Login
           </button>
-          {/* <button className="rounded-lg bg-slate-950 px-5 py-2 text-white font-medium hover:bg-slate-700 transition-colors">
+          {/* `<button className="rounded-lg bg-slate-950 px-5 py-2 text-white font-medium hover:bg-slate-700 transition-colors">
             Registro
-          </button> */}
+          </button>` */}
         </div>
-      </nav>
+      </nav>``
     </header>
   );
 };
