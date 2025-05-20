@@ -185,9 +185,9 @@ const RegistroAsistencias = () => {
               )}
             </form>
           </div>
-          <div className="relative mx-auto aspect-video max-w-2xl overflow-hidden rounded-xl shadow-2xl lg:max-w-none">
+          <div className="">
             <img
-              src="/dashboard-verificaciones.webp"
+              src="/dashboard-verificaciones-diarias.webp"
               alt="Vista previa del administrador Crossfy para estudios de pilates"
               className="h-full w-full object-cover object-center"
               loading="lazy"

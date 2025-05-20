@@ -11,8 +11,8 @@ const Navbar = () => {
 
         {/* Buttons */}
         <div className="flex gap-3">
-          <button className="rounded-lg border-2 border-slate-950 px-5 py-2 text-slate-950 font-medium hover:bg-slate-950 hover:text-white transition-colors cursor-pointer">
-            Login
+          <button className="rounded-lg border-2 border-slate-950 px-5 py-2 text-slate-950 text-sm font-medium hover:bg-slate-950 hover:text-white transition-colors cursor-pointer">
+            Iniciar Sesion
           </button>
           {/* `<button className="rounded-lg bg-slate-950 px-5 py-2 text-white font-medium hover:bg-slate-700 transition-colors">
             Registro
