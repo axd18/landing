@@ -20,7 +20,7 @@ const Faq = () => {
         },
         {
             question: '¿Cómo gestionar mi Estudio de pilates?',
-            answer: 'AgendaPro cuenta con muchas funcionalidades que te permitirán administrar la agenda, clientes, ventas, recordatorios, pagos y mucho más.',
+            answer: 'Training Hub cuenta con muchas funcionalidades que te permitirán administrar la agenda, clientes, ventas, recordatorios, pagos y mucho más.',
             open: false
         }
     ]);
@@ -63,7 +63,7 @@ const Faq = () => {
                     ))}
                 </div>
 
-                <p className="text-center text-gray-600 textbase mt-9">¿No encontraste la respuesta? <a href="#" title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Contacta al soporte.</a></p>
+                <p className="text-center text-gray-600 textbase mt-9">¿No encontraste la respuesta? <a href="https://wa.me/5492235110038?text=Hola%20quiero%20probar%20la%20demo." title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Contacta al soporte.</a></p>
             </div>
         </section>
     );
