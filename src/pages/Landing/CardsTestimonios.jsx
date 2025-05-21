@@ -45,8 +45,8 @@ const CardsTestimonios = () => {
 
                                     <div className="flex items-center mt-8">
                                         <img 
-                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
-                                            src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-1.png" 
+                                            className="flex-shrink-0 object-cover rounded-full w-20 h-20" 
+                                            src="/testimonios/Laura.jpg" 
                                             alt="Leslie Alexander" 
                                         />
                                         <div className="ml-4">
@@ -78,8 +78,8 @@ const CardsTestimonios = () => {
 
                                     <div className="flex items-center mt-8">
                                         <img 
-                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
-                                            src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-male-2.png" 
+                                            className="flex-shrink-0 object-cover rounded-full w-20 h-20" 
+                                            src="/testimonios/Sofia.jpg" 
                                             alt="Jacob Jones" 
                                         />
                                         <div className="ml-4">
@@ -111,8 +111,8 @@ const CardsTestimonios = () => {
 
                                     <div className="flex items-center mt-8">
                                         <img 
-                                            className="flex-shrink-0 object-cover rounded-full w-11 h-11" 
-                                            src="https://cdn.rareblocks.xyz/collection/clarity/images/testimonial/4/avatar-female.png" 
+                                            className="flex-shrink-0 object-cover rounded-full w-20 h-20" 
+                                            src="/testimonios/Pilar.jpg" 
                                             alt="Jenny Wilson" 
                                         />
                                         <div className="ml-4">
