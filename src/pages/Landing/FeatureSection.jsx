@@ -18,7 +18,7 @@ const FeatureSection = () => {
                             className="mx-auto h-auto w-auto"
                         />
                         <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Reservas de camas</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Evitá dobles agendamientos y maximiza tu ocupación y todo bajo control.</p>
+                        <p className="mt-5 text-base text-gray-600 font-pj">Evitá dobles agendamientos y maximizá tu ocupación y todo bajo control.</p>
                     </div>
 
                     {/* Feature 2 - Sales */}

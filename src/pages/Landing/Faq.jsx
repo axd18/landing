@@ -4,23 +4,23 @@ import React, { useState } from 'react';
 const Faq = () => {
     const [faq, setFaq] = useState([
         {
-            question: '¿Cómo asignar una cama a un cliente?',
-            answer: 'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
+            question: '¿Qué es un software sistema, o app para estudio de pilates?',
+            answer: 'Es una herramienta digital que ayuda a gestionar un negocio de forma fácil y sencilla, desde cualquier dispositivo. Esta incluye todas las funcionalidades necesarias para administrar el negocio óptimamente.',
             open: false
         },
         {
-            question: '¿Cómo registrar asistencia?',
-            answer: 'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
+            question: '¿Cuánto cuesta un software para un estudio de pilates?',
+            answer: 'Training Hub es el software con la mejor relación calidad-precio. Si aún no estás seguro de si es perfecta para tu centro de pilates, puedes probar gratis la plataforma demo durante un periodo y ver si se adapta a tus necesidades.',
             open: false
         },
         {
-            question: '¿Cómo registro los pagos?',
-            answer: 'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
+            question: '¿Cómo me cambio a Training Hub si en la actualidad tengo otro software de gestión?',
+            answer: '¡Es mucho más fácil de lo que imaginas! Nuestro equipo de soporte te acompañará paso a paso y te ayudará a importar todos los datos de tu anterior software en cuestión de minutos.',
             open: false
         },
         {
-            question: '¿Cómo agrego un cliente?',
-            answer: 'Amet minim mollit non deserunt ullamco est sit <a href="#" title="" class="text-blue-600 transition-all duration-200 hover:underline">aliqua dolor</a> do amet sint. Velit officia consequat duis enim velit mollit.',
+            question: '¿Cómo gestionar mi Estudio de pilates?',
+            answer: 'AgendaPro cuenta con muchas funcionalidades que te permitirán administrar la agenda, clientes, ventas, recordatorios, pagos y mucho más.',
             open: false
         }
     ]);
@@ -49,7 +49,7 @@ const Faq = () => {
                     {faq.map((item, index) => (
                         <div key={index} className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
                             <button type="button" className="flex items-center justify-between w-full px-4 py-5 sm:p-6" onClick={() => toggleFaq(index)}>
-                                <span className="flex text-lg font-semibold text-black"> {item.question} </span>
+                                <span className="flex text-lg font-semibold text-black text-left"> {item.question} </span>
 
                                 <svg className={`w-6 h-6 text-gray-400 ${item.open ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
