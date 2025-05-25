@@ -1,130 +1,92 @@
 import React, { useState, useEffect } from "react";
-// import helpSections from "@/data/helpSections.json";
 
 const HelpPage = () => {
   const [showScrollButton, setShowScrollButton] = useState(false);
 
-  const handleScroll = (id) => (e) => {
-    e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   useEffect(() => {
-    const checkScroll = () => {
-      if (window.scrollY > 300) {
-        setShowScrollButton(true);
-      } else {
-        setShowScrollButton(false);
-      }
-    };
-
+    const checkScroll = () => setShowScrollButton(window.scrollY > 300);
     window.addEventListener("scroll", checkScroll);
     return () => window.removeEventListener("scroll", checkScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const helpSections = [
     {
-      "id": "agregar-cliente",
-      "title": "Cómo agregar un cliente",
-      "videoSrc": "/agregar-cliente.mp4",
-      "altText": "Video tutorial: Cómo agregar un cliente"
+      id: "agregar-cliente",
+      title: "Cómo agregar un cliente",
+      youtubeUrl: "https://www.youtube.com/embed/SRu9xaOwR00",
     },
     {
-      "id": "agregar-actividad",
-      "title": "Cómo agregar una actividad",
-      "videoSrc": "/agregar-actividad.mp4",
-      "altText": "Video tutorial: Cómo agregar una actividad"
+      id: "agregar-actividad",
+      title: "Cómo agregar una actividad",
+      youtubeUrl: "https://www.youtube.com/embed/mKASOKlAU88",
     },
     {
-      "id": "agregar-profesor",
-      "title": "Cómo agregar un profesor",
-      "videoSrc": "/agregar-profe.mp4",
-      "altText": "Video tutorial: Cómo agregar un profesor"
+      id: "agregar-profesor",
+      title: "Cómo agregar un profesor",
+      youtubeUrl: "https://www.youtube.com/embed/RDlvOfHHjYU",
     },
     {
-      "id": "cargar-horas",
-      "title": "Cómo cargar horas y montos de los profesores",
-      "videoSrc": "#",
-      "altText": "Video tutorial: Cómo cargar horas y montos"
+      id: "asignar-espacio-yoga",
+      title: "Asignar un espacio para la clase de yoga",
+      youtubeUrl: "https://www.youtube.com/embed/kV1wLH9h6ok",
     },
     {
-        "id": "asignar-espacio-yoga",
-        "title": "Asignar un espacio para la clase de yoga",
-        "videoSrc": "/asignar-espacio-yoga.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de yoga"
-      },
-      {
-        "id": "asignar-espacio-stretching",
-        "title": "Asignar un espacio para la clase de stretching",
-        "videoSrc": "/asignar-espacio-stretching.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de stretching"
-      },
-      {
-        "id": "asignar-espacio-jumping",
-        "title": "Asignar un espacio para la clase de jumping trump",
-        "videoSrc": "/asignar-espacio-jumping.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de jumping trump"
-      },
-      {
-        "id": "asignar-espacio-funcional",
-        "title": "Asignar un espacio para la clase de funcional",
-        "videoSrc": "/asignar-espacio-funcional.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de funcional"
-      },
-      {
-        "id": "asignar-espacio-boxeo",
-        "title": "Asignar un espacio para la clase de boxeo",
-        "videoSrc": "/asignar-espacio-boxeo.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de boxeo"
-      },
-      {
-        "id": "asignar-espacio-gap",
-        "title": "Asignar un espacio para la clase de gap",
-        "videoSrc": "/asignar-espacio-gap.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de gap"
-      },
-      {
-        "id": "asignar-espacio-jujitsu",
-        "title": "Asignar un espacio para la clase de jujitsu",
-        "videoSrc": "/asignar-espacio-jujitsu.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de jujitsu"
-      },
-      {
-        "id": "asignar-espacio-kickboxing",
-        "title": "Asignar un espacio para la clase de kickboxing",
-        "videoSrc": "/asignar-espacio-kickboxing.mp4",
-        "altText": "Video tutorial: Asignar un espacio para la clase de kickboxing"
-      },
-      {
-        "id": "editar-actividades",
-        "title": "Editar actividades",
-        "videoSrc": "/editar-actividades.mp4",
-        "altText": "Video tutorial: Editar actividades"
-      },
-      {
-        "id": "registro-pago",
-        "title": "Registro de pago",
-        "videoSrc": "/registro-pago.mp4",
-        "altText": "Video tutorial: registro de pago"
-      }
-  ]
+      id: "asignar-espacio-yoga",
+      title: "Asignar un espacio para la clase de yoga",
+      youtubeUrl: "https://www.youtube.com/embed/kV1wLH9h6ok",
+    },
+    {
+      id: "asignar-espacio-stretching",
+      title: "Asignar un espacio para streching",
+      youtubeUrl: "https://www.youtube.com/embed/Ti-8NFcfsWs",
+    },
+    {
+      id: "asignar-espacio-jumping",
+      title: "Asignar un espacio para jumping",
+      youtubeUrl: "https://www.youtube.com/embed/rNG_CVDOmrQ",
+    },
+    {
+      id: "asignar-espacio-funcional",
+      title: "Asignar un espacio para funcional",
+      youtubeUrl: "https://www.youtube.com/embed/hsCgsbqHpzc",
+    },
+    {
+      id: "asignar-espacio-boxeo",
+      title: "Asignar un espacio para boxeo",
+      youtubeUrl: "https://www.youtube.com/embed/nJesfN1KaFA",
+    },
+    {
+      id: "asignar-espacio-gap",
+      title: "Asignar un espacio para GAP",
+      youtubeUrl: "https://www.youtube.com/embed/ab8EXpvSKFE",
+    },
+    {
+      id: "signar-espacio-jujitsu",
+      title: "Asignar un espacio para Jujitsu",
+      youtubeUrl: "https://www.youtube.com/embed/4WCl67AzKRA",
+    },
+    {
+      id: "signar-espacio-kickboxing",
+      title: "Asignar un espacio para kickboxing",
+      youtubeUrl: "https://www.youtube.com/embed/6TjtceH-bm8",
+    },
+    {
+      id: "editar-actividades",
+      title: "Editar actividades",
+      youtubeUrl: "",
+    },
+  ];
 
   return (
     <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 bg-slate-200 relative">
-      {/* Botón de scroll arriba */}
       {showScrollButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 animate-bounce cursor-pointer"
+          className="fixed bottom-8 right-8 z-50 p-3 bg-blue-600 rounded-full shadow-lg hover:bg-blue-700 transition-all animate-bounce cursor-pointer"
           aria-label="Volver arriba"
         >
           <svg
@@ -144,67 +106,64 @@ const HelpPage = () => {
         </button>
       )}
 
-      <div className="flex justify-between px-4 mx-auto max-w-screen-xl">
-        <article className="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
-          <header className="mb-4 lg:mb-6 not-format">
-            <h1 className="text-3xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-4xl">
-              Ayuda
-            </h1>
-            <h2 className="font-regular mb-12 text-xl">
-              Videos cortos que te guían paso a paso de forma fácil y rápida.
-            </h2>
-          </header>
+      <div className="px-4 mx-auto max-w-screen-xl">
+        <header className="mb-12 text-center">
+          <h1 className="text-3xl font-bold text-slate-700 lg:text-4xl mb-4">
+            Ayuda
+          </h1>
+          <p className="text-xl text-slate-600">
+            Videos cortos que te guían paso a paso de forma fácil y rápida.
+          </p>
+        </header>
 
-          <SectionLinks sections={helpSections} handleScroll={handleScroll} />
+        <SectionLinks sections={helpSections} />
 
-          {helpSections.map((section, index) => (
-            <HelpSection  // Corregido: Debe ser HelpSection con mayúscula
-              key={section.id}
-              section={section}
-              isFirst={index === 0}
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+          {helpSections.map((section) => (
+            <HelpSection key={section.id} section={section} />
           ))}
-        </article>
+        </div>
       </div>
     </main>
   );
 };
 
-// Componente para los enlaces de sección
-const SectionLinks = ({ sections, handleScroll }) => (
-  <div className="mb-24 mt-12 text-l">
-    <ul className="space-y-1">
+const SectionLinks = ({ sections }) => (
+  <nav className="text-center mt-12 stroke-2 stroke-black">
+    <ul className="flex flex-wrap justify-start gap-4 stroke-2">
       {sections.map((section) => (
         <li key={section.id}>
           <a
             href={`#${section.id}`}
-            className="text-blue-600 hover:underline dark:text-blue-500"
-            onClick={handleScroll(section.id)}
+            className="inline-block px-4 py-2 rounded-full text-gray-700
+ stroke-3 font-medium transition-colors hover:bg-gray-700 hover:text-white"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById(section.id)?.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
           >
             {section.title}
           </a>
         </li>
       ))}
     </ul>
-  </div>
+  </nav>
 );
 
-// Componente para cada sección de ayuda
-const HelpSection = ({ section, isFirst }) => (
-  <section
-    id={section.id}
-    className={`scroll-mt-20 ${!isFirst ? "mt-28" : ""}`}
-  >
-    <h2 className="mb-4 text-xl font-bold leading-tight text-slate-700 lg:mb-6 lg:text-2xl">
-      {section.title}
-    </h2>
-    <div className="my-6">
-      <video
-        src={section.videoSrc}
-        alt={section.altText}
-        className="w-full rounded-lg shadow-md"
-        controls
-      />
+const HelpSection = ({ section }) => (
+  <section id={section.id} className="scroll-mt-20">
+    <h2 className="mb-4 text-xl font-bold text-slate-700">{section.title}</h2>
+    <div className="rounded-lg overflow-hidden shadow-md">
+      <iframe
+        src={section.youtubeUrl}
+        title={section.title}
+        className="w-full h-[215px] md:h-[360px]"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </div>
   </section>
 );
