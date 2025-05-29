@@ -77,7 +77,7 @@ const HelpPage = () => {
     {
       id: "editar-actividades",
       title: "Editar actividades",
-      youtubeUrl: "",
+      youtubeUrl: "https://www.youtube.com/embed/cIwTg4IEiWw",
     },
   ];
 
