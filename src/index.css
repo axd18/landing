@@ -28,3 +28,42 @@
 .elegant-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #8c8696; /* Un violeta un poco más oscuro (violet-600) */
 }
+/* En tu archivo CSS global, ej: src/globals.css */
+
+/* Keyframes para la animación de entrada de los textos */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Clase de utilidad para aplicar la animación */
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+
+/* Estilo y animación para el efecto de pulso/onda en el fondo */
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  /* Usamos un color blanco semi-transparente para el efecto de luz */
+  background-color: rgba(255, 255, 255, 0.4);
+  /* La animación durará 0.7 segundos */
+  animation: ripple-animation 0.7s ease-out forwards;
+  /* El transform-origin asegura que escale desde el centro */
+  transform: scale(0);
+  pointer-events: none; /* Evita que la onda interfiera con otros clics */
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
