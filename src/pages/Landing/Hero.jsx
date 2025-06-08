@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import Carousel from "../../components/Carousel"; // Asumiendo que tienes este componente
 import { sendForm } from "@emailjs/browser";
+
 import InteractiveBackground from "../../components/InteractiveBackground"; // Importamos nuestro nuevo componente
 
 const Hero = () => {
