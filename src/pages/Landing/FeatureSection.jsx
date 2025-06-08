@@ -1,80 +1,109 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
-const FeatureSection = () => {        
+// Componente para cada tarjeta de característica individual
+// Recibe props para personalizar su contenido y la animación
+const FeatureCard = ({ icon, title, description, borderClasses, delay }) => {
+    const { ref, inView } = useInView({
+        // La animación se activa una sola vez
+        triggerOnce: true, 
+        // Se activa cuando el 10% del elemento es visible
+        threshold: 0.1, 
+    });
+
     return (
-        <section className="py-12 bg-white sm:py-16 lg:py-20">
+        <div
+            ref={ref}
+            // Clases base para el estilo y la transición
+            className={`
+                md:p-8 lg:p-14 
+                ${borderClasses}
+                transform transition-all duration-700 ease-in-out
+                ${inView 
+                    // Estado final (visible): opacidad 1, sin traslación, sin desenfoque
+                    ? 'opacity-100 translate-y-0 blur-0' 
+                    // Estado inicial (oculto): opacidad 0, movido hacia abajo, desenfocado
+                    : 'opacity-0 translate-y-10 blur-sm'
+                }
+                hover:shadow-2xl hover:-translate-y-2 rounded-xl
+            `}
+            // Aplicamos un retraso a la transición para un efecto escalonado
+            style={{ transitionDelay: `${delay}ms` }}
+        >
+            <img 
+                src={icon} 
+                alt={`Icono ${title}`}
+                className="mx-auto h-auto w-auto"
+            />
+            <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">{title}</h3>
+            <p className="mt-5 text-base text-gray-600 font-pj">{description}</p>
+        </div>
+    );
+};
+
+
+const FeatureSection = () => {
+    // Array de datos para las tarjetas para no repetir código JSX
+    const features = [
+        {
+            icon: '/features/camas-icon.svg',
+            title: 'Reservas de camas',
+            description: 'Evitá dobles agendamientos y maximizá tu ocupación y todo bajo control.',
+            borderClasses: '',
+        },
+        {
+            icon: '/features/illus-icon.svg',
+            title: 'Asistencia bajo control',
+            description: 'Controlá quién viene, quién falta y cuántas clases le quedan a cada cliente.',
+            borderClasses: 'md:border-l md:border-gray-200',
+        },
+        {
+            icon: '/features/illus-icon-2.svg',
+            title: 'Gestión de cobros',
+            description: 'Llevá el control de los cobros y deudas a simple vista.',
+            borderClasses: 'md:border-l md:border-gray-200',
+        },
+        {
+            icon: '/features/illus-icon-3.svg',
+            title: 'Registro de Profesores',
+            description: 'Podés gestionar los horarios y pagos de los profesores.',
+            borderClasses: 'md:border-t md:border-gray-200',
+        },
+        {
+            icon: '/features/illus-icon-4.svg',
+            title: 'Calendario',
+            description: 'Incluye un calendario donde podés agregar eventos y de fácil acceso.',
+            borderClasses: 'md:border-l md:border-gray-200 md:border-t',
+        },
+        {
+            icon: '/features/illus-icon-5.svg',
+            title: 'Gestión de clientes',
+            description: 'Registrá tus clientes creando una base de datos y lleva el control de sus actividades.',
+            borderClasses: 'md:border-l md:border-gray-200 md:border-t',
+        },
+    ];
+
+    return (
+        <section className="py-12 bg-white sm:py-16 lg:py-20 overflow-hidden">
             <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div className="text-center">
-                    <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl xl:text-5xl font-pj">Podrás mejorar tu eficiencia y simplificar tu día a día</h2>
-                    {/* <p className="mt-4 text-base leading-7 text-gray-600 sm:mt-8 font-pj">Lorem ipsum dolor sit amet, consectetur adipis elit</p> */}
+                    <h2 className="text-3xl font-bold leading-tight text-slate-950 sm:text-4xl xl:text-5xl font-pj">
+                        Podrás mejorar tu eficiencia y simplificar tu día a día
+                    </h2>
                 </div>
 
                 <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
-                    {/* Feature 1 - Reservas de camas */}
-                    <div className="md:p-8 lg:p-14">
-                        <img 
-                            src="/features/camas-icon.svg" 
-                            alt="Icono reservas de camas"
-                            className="mx-auto h-auto w-auto"
+                    {features.map((feature, index) => (
+                        <FeatureCard
+                            key={index}
+                            icon={feature.icon}
+                            title={feature.title}
+                            description={feature.description}
+                            borderClasses={feature.borderClasses}
+                            // Retraso escalonado para cada tarjeta (0ms, 150ms, 300ms, ...)
+                            delay={index * 150} 
                         />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Reservas de camas</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Evitá dobles agendamientos y maximizá tu ocupación y todo bajo control.</p>
-                    </div>
-
-                    {/* Feature 2 - Sales */}
-                    <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200">
-                        <img 
-                            src="/features/illus-icon.svg" 
-                            alt="Icono sales"
-                            className="mx-auto h-auto w-auto"
-                        />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Asistencia bajo control</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Controlá quién viene, quién falta y cuántas clases le quedan a cada cliente.</p>
-                    </div>
-
-                    {/* Feature 3 - Onboarding */}
-                    <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200">
-                        <img 
-                            src="/features/illus-icon-2.svg" 
-                            alt="Icono onboarding"
-                            className="mx-auto h-auto w-auto"
-                        />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Gestión de cobros</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Llevá el control de los cobros y deudas a simple vista.</p>
-                    </div>
-
-                    {/* Feature 4 - Product */}
-                    <div className="md:p-8 lg:p-14 md:border-t md:border-gray-200">
-                        <img 
-                            src="/features/illus-icon-3.svg" 
-                            alt="Icono product"
-                            className="mx-auto h-auto w-auto"
-                        />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Registro de Profesores</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Podés gestionar los horarios y pagos de los profesores.</p>
-                    </div>
-
-                    {/* Feature 5 - Quality */}
-                    <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
-                        <img 
-                            src="/features/illus-icon-4.svg" 
-                            alt="Icono quality"
-                            className="mx-auto h-auto w-auto"
-                        />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Calendario</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Incluye un calendario donde podés agregar eventos y de fácil acceso.</p>
-                    </div>
-
-                    {/* Feature 6 - Result */}
-                    <div className="md:p-8 lg:p-14 md:border-l md:border-gray-200 md:border-t">
-                        <img 
-                            src="/features/illus-icon-5.svg" 
-                            alt="Icono result"
-                            className="mx-auto h-auto w-auto"
-                        />
-                        <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">Gestión de clientes</h3>
-                        <p className="mt-5 text-base text-gray-600 font-pj">Registrá tus clientes creando una base de datos y lleva el control de sus actividades.</p>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
