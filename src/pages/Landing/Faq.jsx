@@ -1,6 +1,53 @@
-
 import React, { useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
+// --- Componente Reutilizable para cada Pregunta Frecuente ---
+const FaqItem = ({ item, index, onToggle, delay }) => {
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        threshold: 0.1,
+    });
+
+    return (
+        <div
+            ref={ref}
+            className={`transition-all duration-500 ease-in-out border border-gray-200 rounded-xl shadow-sm hover:shadow-lg ${
+                item.open ? 'shadow-lg bg-white' : ''
+            } ${
+                inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}
+            style={{ transitionDelay: `${delay}ms` }}
+        >
+            <button
+                type="button"
+                className="flex items-center justify-between w-full px-4 py-5 sm:p-6"
+                onClick={() => onToggle(index)}
+            >
+                <span className="flex text-lg font-semibold text-black text-left">{item.question}</span>
+                <svg
+                    className={`w-6 h-6 text-gray-400 transition-transform duration-300 ${item.open ? 'rotate-180' : ''}`}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+            {/* Contenedor de la respuesta con animación de max-height */}
+            <div
+                className={`overflow-hidden transition-[max-height] duration-500 ease-in-out ${item.open ? 'max-h-96' : 'max-h-0'}`}
+            >
+                <div className="px-4 pb-5 sm:px-6 sm:pb-6">
+                    <p className="text-gray-600" dangerouslySetInnerHTML={{ __html: item.answer }}></p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
+// --- Componente Principal ---
 const Faq = () => {
     const [faq, setFaq] = useState([
         {
@@ -26,47 +73,54 @@ const Faq = () => {
     ]);
 
     const toggleFaq = (index) => {
-        setFaq(faq.map((item, i) => {
-            if (i === index) {
-                item.open = !item.open;
-            } else {
-                item.open = false;
-            }
+        setFaq(
+            faq.map((item, i) => {
+                if (i === index) {
+                    item.open = !item.open;
+                } else {
+                    item.open = false; // Cierra las otras preguntas
+                }
+                return item;
+            })
+        );
+    };
 
-            return item;
-        }));
-    }
+    const { ref: titleRef, inView: titleInView } = useInView({
+        triggerOnce: true,
+        threshold: 0.5,
+    });
 
     return (
-        <section className="py-10 sm:py-16 lg:py-24">
+        <section className="py-10 bg-gray-50 sm:py-16 lg:py-24">
             <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
-                <div className="max-w-2xl mx-auto text-center">
+                <div 
+                    ref={titleRef}
+                    className={`max-w-2xl mx-auto text-center transition-opacity duration-700 ease-in-out ${titleInView ? 'opacity-100' : 'opacity-0'}`}
+                >
                     <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">Preguntas frecuentes</h2>
-                    {/* <p className="max-w-xl mx-auto mt-4 text-base leading-relaxed text-gray-600">Amet minim mollit non deserunt ullamco est sit aliqua dolor do</p> */}
                 </div>
 
                 <div className="max-w-3xl mx-auto mt-8 space-y-4 md:mt-16">
                     {faq.map((item, index) => (
-                        <div key={index} className="transition-all duration-200 bg-white border border-gray-200 cursor-pointer hover:bg-gray-50">
-                            <button type="button" className="flex items-center justify-between w-full px-4 py-5 sm:p-6" onClick={() => toggleFaq(index)}>
-                                <span className="flex text-lg font-semibold text-black text-left"> {item.question} </span>
-
-                                <svg className={`w-6 h-6 text-gray-400 ${item.open ? 'rotate-180' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </button>
-
-                            <div className={`${item.open ? 'block' : 'hidden'} px-4 pb-5 sm:px-6 sm:pb-6`}>
-                                <p dangerouslySetInnerHTML={{ __html: item.answer }}></p>
-                            </div>
-                        </div>
+                        <FaqItem
+                            key={index}
+                            item={item}
+                            index={index}
+                            onToggle={toggleFaq}
+                            delay={index * 100} // Retraso escalonado para la animación
+                        />
                     ))}
                 </div>
 
-                <p className="text-center text-gray-600 textbase mt-9">¿No encontraste la respuesta? <a href="https://wa.me/5492235110038?text=Hola%20quiero%20probar%20la%20demo." title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">Contacta al soporte.</a></p>
+                <p className="text-center text-gray-600 textbase mt-9">
+                    ¿No encontraste la respuesta?{' '}
+                    <a href="https://wa.me/5492235110038?text=Hola%20quiero%20probar%20la%20demo." title="" className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 focus:text-blue-700 hover:underline">
+                        Contacta al soporte.
+                    </a>
+                </p>
             </div>
         </section>
     );
-}
+};
 
 export default Faq;
