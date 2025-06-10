@@ -5,7 +5,14 @@ const Navbar = () => {
     <header className="w-full bg-white/90 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo / Brand */}
-        <div className="text-2xl font-bold text-slate-800">Training Hub</div>
+        <div className="#">
+          <img
+                            src="./public/logos/logo-traininghub.svg"
+                            alt="Logo Traininghub"
+                            className="w-48 h-auto object-contain"
+                            loading="lazy"
+                        />
+        </div>
 
         {/* Buttons */}
         <div className="flex gap-3">
