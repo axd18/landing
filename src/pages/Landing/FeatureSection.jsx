@@ -3,12 +3,12 @@ import { useInView } from 'react-intersection-observer';
 
 // Componente para cada tarjeta de característica individual
 // Recibe props para personalizar su contenido y la animación
-const FeatureCard = ({ icon, title, description, borderClasses, delay }) => {
+const FeatureCard = ({ icon, title, description, delay }) => {
     const { ref, inView } = useInView({
         // La animación se activa una sola vez
-        triggerOnce: true, 
+        triggerOnce: true,
         // Se activa cuando el 10% del elemento es visible
-        threshold: 0.1, 
+        threshold: 0.1,
     });
 
     return (
@@ -16,12 +16,12 @@ const FeatureCard = ({ icon, title, description, borderClasses, delay }) => {
             ref={ref}
             // Clases base para el estilo y la transición
             className={`
-                md:p-8 lg:p-14 
-                ${borderClasses}
+                p-6 sm:p-8 lg:p-14 // Padding base para todas las pantallas, ajustado para sm y lg
+                border border-gray-200 // Bordes generales para todas las tarjetas
                 transform transition-all duration-700 ease-in-out
-                ${inView 
+                ${inView
                     // Estado final (visible): opacidad 1, sin traslación, sin desenfoque
-                    ? 'opacity-100 translate-y-0 blur-0' 
+                    ? 'opacity-100 translate-y-0 blur-0'
                     // Estado inicial (oculto): opacidad 0, movido hacia abajo, desenfocado
                     : 'opacity-0 translate-y-10 blur-sm'
                 }
@@ -30,8 +30,8 @@ const FeatureCard = ({ icon, title, description, borderClasses, delay }) => {
             // Aplicamos un retraso a la transición para un efecto escalonado
             style={{ transitionDelay: `${delay}ms` }}
         >
-            <img 
-                src={icon} 
+            <img
+                src={icon}
                 alt={`Icono ${title}`}
                 className="mx-auto h-auto w-auto"
             />
@@ -49,37 +49,31 @@ const FeatureSection = () => {
             icon: '/features/camas-icon.svg',
             title: 'Reservas de camas',
             description: 'Evitá dobles agendamientos y maximizá tu ocupación y todo bajo control.',
-            borderClasses: '',
         },
         {
             icon: '/features/illus-icon.svg',
             title: 'Asistencia bajo control',
             description: 'Controlá quién viene, quién falta y cuántas clases le quedan a cada cliente.',
-            borderClasses: 'md:border-l md:border-gray-200',
         },
         {
             icon: '/features/illus-icon-2.svg',
             title: 'Gestión de cobros',
             description: 'Llevá el control de los cobros y deudas a simple vista.',
-            borderClasses: 'md:border-l md:border-gray-200',
         },
         {
             icon: '/features/illus-icon-3.svg',
             title: 'Registro de Profesores',
             description: 'Podés gestionar los horarios y pagos de los profesores.',
-            borderClasses: 'md:border-t md:border-gray-200',
         },
         {
             icon: '/features/illus-icon-4.svg',
             title: 'Calendario',
             description: 'Incluye un calendario donde podés agregar eventos y de fácil acceso.',
-            borderClasses: 'md:border-l md:border-gray-200 md:border-t',
         },
         {
             icon: '/features/illus-icon-5.svg',
             title: 'Gestión de clientes',
             description: 'Registrá tus clientes creando una base de datos y lleva el control de sus actividades.',
-            borderClasses: 'md:border-l md:border-gray-200 md:border-t',
         },
     ];
 
@@ -92,16 +86,22 @@ const FeatureSection = () => {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-1 mt-10 text-center sm:mt-16 sm:grid-cols-2 sm:gap-x-12 gap-y-12 md:grid-cols-3 md:gap-0 xl:mt-24">
+                <div className="
+                    grid grid-cols-1 // Por defecto, una columna en móviles
+                    gap-8 // Espacio consistente entre elementos en todas las pantallas
+                    mt-10 text-center
+                    sm:mt-16 sm:grid-cols-2 // En sm, dos columnas
+                    md:grid-cols-3 // En md, tres columnas
+                    xl:mt-24
+                ">
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
                             icon={feature.icon}
                             title={feature.title}
                             description={feature.description}
-                            borderClasses={feature.borderClasses}
                             // Retraso escalonado para cada tarjeta (0ms, 150ms, 300ms, ...)
-                            delay={index * 150} 
+                            delay={index * 150}
                         />
                     ))}
                 </div>

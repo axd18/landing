@@ -22,9 +22,9 @@ const LandingPage = () => {
 
             {/* A partir de aquí, envolvemos cada sección con nuestro componente animado */}
 
-            <AnimatedSection direction="up">
+            {/* <AnimatedSection direction="up"> */} {/* Comentamos la envoltura */}
                 <FeatureSection />
-            </AnimatedSection>
+            {/* </AnimatedSection> */}
             
             <AnimatedSection direction="left">
                 <GestionCamas />

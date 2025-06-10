@@ -1,9 +1,8 @@
 // src/pages/Landing/Hero.jsx
 import React, { useRef, useState } from "react";
-import Carousel from "../../components/Carousel"; // Asumiendo que tienes este componente
+import Carousel from "../../components/Carousel";
 import { sendForm } from "@emailjs/browser";
-
-import InteractiveBackground from "../../components/InteractiveBackground"; // Importamos nuestro nuevo componente
+import InteractiveBackground from "../../components/InteractiveBackground";
 
 const Hero = () => {
     const form = useRef();
@@ -30,32 +29,30 @@ const Hero = () => {
     return (
         <div className="relative min-h-screen w-full">
             <InteractiveBackground imageUrl="/bg-hero-02.webp">
-                
-                {/* Todo el contenido se renderiza como "hijo" del fondo interactivo */}
                 <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-8 sm:px-6 lg:flex-row lg:items-center lg:px-8 gap-8">
-                    
                     <div className="w-full lg:w-1/2 flex flex-col justify-center">
                         <div className="mb-8 block lg:hidden opacity-0 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
                             <img src="/img-hero-desktop.webp" alt="Mobile preview" className="w-full h-auto object-contain" loading="lazy" />
                         </div>
 
-                        <h1 
-                            className="text-4xl font-bold text-slate-800 md:text-5xl lg:text-6xl lg:leading-[1.2] opacity-0 animate-fade-in-up" 
+                        <h1
+                            // CAMBIO AQUÍ: text-3xl para pantallas pequeñas, luego escala a md:text-5xl y lg:text-6xl
+                            className="text-3xl font-bold text-slate-800 md:text-5xl lg:text-6xl lg:leading-[1.2] opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '0.2s' }}
                         >
                             El Software para Estudio de Pilates más completo
                         </h1>
 
-                        <p 
+                        <p
                             className="mt-6 text-lg text-slate-800 opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '0.4s' }}
                         >
                             Lleva la gestión integral de tu centro de pilates. Una solución diseñada a medida.
                         </p>
 
-                        <form 
-                            ref={form} 
-                            onSubmit={sendEmail} 
+                        <form
+                            ref={form}
+                            onSubmit={sendEmail}
                             className="mt-8 opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '0.6s' }}
                         >
@@ -89,7 +86,7 @@ const Hero = () => {
                         </div>
                     </div>
 
-                    <div 
+                    <div
                         className="hidden lg:flex lg:w-1/2 lg:items-center lg:justify-center opacity-0 animate-fade-in-up"
                         style={{ animationDelay: '0.5s' }}
                     >
@@ -101,7 +98,6 @@ const Hero = () => {
                         />
                     </div>
                 </div>
-                
             </InteractiveBackground>
         </div>
     );
