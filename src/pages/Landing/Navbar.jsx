@@ -7,7 +7,7 @@ const Navbar = () => {
         {/* Logo / Brand */}
         <div className="#">
           <img
-                            src="./public/logos/logo-traininghub.svg"
+                            src="/logos/logo-traininghub.svg"
                             alt="Logo Traininghub"
                             className="w-48 h-auto object-contain"
                             loading="lazy"
