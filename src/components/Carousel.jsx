@@ -4,11 +4,11 @@ const Carousel = () => {
   // Array de logos (reemplaza con tus imágenes)
   const logos = [
     { id: 1, src: "/logos/logo1.webp", alt: "Logo 1" },
-    { id: 2, src: "/logos/logo2.webp", alt: "Logo 2" },
-    { id: 3, src: "/logos/logo3.webp", alt: "Logo 3" },
-    { id: 4, src: "/logos/logo4.webp", alt: "Logo 4" },
-    { id: 5, src: "/logos/logo1.webp", alt: "Logo 5" },
-    { id: 6, src: "/logos/logo2.webp", alt: "Logo 6" },
+    // { id: 2, src: "/logos/logo2.webp", alt: "Logo 2" },
+    // { id: 3, src: "/logos/logo3.webp", alt: "Logo 3" },
+    // { id: 4, src: "/logos/logo4.webp", alt: "Logo 4" },
+    // { id: 5, src: "/logos/logo1.webp", alt: "Logo 5" },
+    // { id: 6, src: "/logos/logo2.webp", alt: "Logo 6" },
   ];
 
   return (
@@ -34,7 +34,7 @@ const Carousel = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-16 object-contain opacity-80 transition-opacity hover:opacity-100 sm:h-20"
+                    className="h-8 opacity-80 transition-opacity hover:opacity-100 sm:h-20"
                     loading="lazy"
                   />
                 </div>
