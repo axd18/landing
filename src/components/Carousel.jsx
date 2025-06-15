@@ -34,7 +34,7 @@ const Carousel = () => {
                   <img
                     src={logo.src}
                     alt={logo.alt}
-                    className="h-8 opacity-80 transition-opacity hover:opacity-100 sm:h-20"
+                    className="h-8 object-contain opacity-80 transition-opacity hover:opacity-100 sm:h-20"
                     loading="lazy"
                   />
                 </div>
