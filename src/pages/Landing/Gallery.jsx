@@ -2,30 +2,30 @@ const galleryData = [
   // Columna 1
   [
     "/images/01.jpg",
-    "/images/02.jpg",
-    "/images/03.jpg",
-    "/images/04.jpg"
+    // "/images/02.jpg",
+    // "/images/03.jpg",
+    // "/images/04.jpg"
   ],
   // Columna 2
   [
-    "/images/04.jpg",
-    "/images/01.jpg",
-    "/images/03.jpg",
     "/images/02.jpg",
+    // "/images/01.jpg",
+    // "/images/03.jpg",
+    // "/images/02.jpg",
   ],
   // Columna 3
   [
-    "/images/02.jpg",
-    "/images/04.jpg",
-    "/images/01.jpg",
-    "/images/03.jpg",
+    "/images/05.jpg",
+    // "/images/04.jpg",
+    // "/images/01.jpg",
+    // "/images/03.jpg",
   ],
   // Columna 4
   [
-    "/images/01.jpg",
-    "/images/02.jpg",
-    "/images/03.jpg",
-    "/images/04.jpg",
+    // "/images/04.jpg",
+    // "/images/02.jpg",
+    // "/images/03.jpg",
+    // "/images/04.jpg",
   ]
 ];
 

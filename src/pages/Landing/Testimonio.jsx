@@ -58,10 +58,10 @@ const Testimonio = () => {
                     >
                         <p className="mt-6 mb-12 text-2xl text-gray-600 italic">
                             “Hemos utilizado varios software y han dejado mucho que desear.
-                            Hemos magnetizado con Crossfy porque es muy amigable y me motiva a
+                            Hemos magnetizado con Training Hub porque es muy amigable y me motiva a
                             organizarme y mantener un orden.”
                         </p>
-                        <p className="text-xl font-semibold text-slate-800">Meli Santos de Body Balance – Centro de Pilates</p>
+                        <p className="text-xl font-semibold text-slate-800">Meli Santos de Evolution FYT</p>
                     </div>
                 </div>
             </div>
