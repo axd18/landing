@@ -11,7 +11,7 @@ import Faq from "./Faq";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import Navbar from "./Navbar";
-import Gallery from "../../components/Gallery";
+import Gallery from "./Gallery";
 
 const LandingPage = () => {
     return (
@@ -38,12 +38,12 @@ const LandingPage = () => {
             <AnimatedSection direction="left">
                 <Testimonio />
             </AnimatedSection>
+            <Gallery />
 
             <AnimatedSection direction="up">
                 <CardsTestimonios />
             </AnimatedSection>
 
-            {/* <Gallery /> */}
 
             <AnimatedSection direction="up">
                 <Faq />
