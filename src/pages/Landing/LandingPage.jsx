@@ -26,7 +26,7 @@ const LandingPage = () => {
             {/* <AnimatedSection direction="up"> */} {/* Comentamos la envoltura */}
                 <FeatureSection />
             {/* </AnimatedSection> */}
-            
+
             <AnimatedSection direction="left">
                 <GestionCamas />
             </AnimatedSection>
@@ -38,12 +38,16 @@ const LandingPage = () => {
             <AnimatedSection direction="left">
                 <Testimonio />
             </AnimatedSection>
-            <Gallery />
+
+            {/* APLICAMOS ANIMACIÓN A LA GALERÍA AQUÍ */}
+            <AnimatedSection direction="up"> {/* Puedes elegir 'up', 'left', 'right' o el que tengas configurado */}
+                <Gallery />
+            </AnimatedSection>
+            {/* FIN DE LA APLICACIÓN DE ANIMACIÓN */}
 
             <AnimatedSection direction="up">
                 <CardsTestimonios />
             </AnimatedSection>
-
 
             <AnimatedSection direction="up">
                 <Faq />
