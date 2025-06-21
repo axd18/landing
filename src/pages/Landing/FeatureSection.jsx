@@ -7,8 +7,8 @@ const FeatureCard = ({ icon, title, description, delay }) => {
     const { ref, inView } = useInView({
         // La animación se activa una sola vez
         triggerOnce: true,
-        // Se activa cuando el 10% del elemento es visible
-        threshold: 0.1,
+        // Se activa cuando el 5% del elemento es visible
+        threshold: 0.05,
     });
 
     return (
@@ -18,13 +18,17 @@ const FeatureCard = ({ icon, title, description, delay }) => {
             className={`
                 p-6 sm:p-8 lg:p-14 // Padding base para todas las pantallas, ajustado para sm y lg
                 border border-gray-200 // Bordes generales para todas las tarjetas
-                transform transition-all duration-700 ease-in-out
+                transform transition-all duration-700 ease-in-out // Duración y tipo de transición
+
+                // Estado de animación:
+                // Si inView es true (visible): opacidad 1, sin traslación.
+                // Si inView es false (oculto): opacidad 0, movido hacia abajo ligeramente.
                 ${inView
-                    // Estado final (visible): opacidad 1, sin traslación, sin desenfoque
-                    ? 'opacity-100 translate-y-0 blur-0'
-                    // Estado inicial (oculto): opacidad 0, movido hacia abajo, desenfocado
-                    : 'opacity-0 translate-y-10 blur-sm'
+                    ? 'opacity-100 translate-y-0' // No blur applied here
+                    : 'opacity-0 translate-y-2'   // No blur applied here
                 }
+                
+                // Efecto hover y bordes redondeados
                 hover:shadow-2xl hover:-translate-y-2 rounded-xl
             `}
             // Aplicamos un retraso a la transición para un efecto escalonado
@@ -33,7 +37,7 @@ const FeatureCard = ({ icon, title, description, delay }) => {
             <img
                 src={icon}
                 alt={`Icono ${title}`}
-                className="mx-auto h-auto w-auto"
+                className="mx-auto h-auto w-auto" // mx-auto para centrar, h-auto w-auto para escalado natural
             />
             <h3 className="mt-12 text-xl font-bold text-gray-900 font-pj">{title}</h3>
             <p className="mt-5 text-base text-gray-600 font-pj">{description}</p>
@@ -41,9 +45,8 @@ const FeatureCard = ({ icon, title, description, delay }) => {
     );
 };
 
-
+// FeatureSection component remains the same, it just uses the updated FeatureCard
 const FeatureSection = () => {
-    // Array de datos para las tarjetas para no repetir código JSX
     const features = [
         {
             icon: '/features/camas-icon.svg',
@@ -67,8 +70,8 @@ const FeatureSection = () => {
         },
         {
             icon: '/features/illus-icon-4.svg',
-            title: 'Calendario',
-            description: 'Incluye un calendario donde podés agregar eventos y de fácil acceso.',
+            title: 'Mix de Actividades',
+            description: 'Incluye variedad de actividades para sumar y Administrar',
         },
         {
             icon: '/features/illus-icon-5.svg',
@@ -87,11 +90,11 @@ const FeatureSection = () => {
                 </div>
 
                 <div className="
-                    grid grid-cols-1 // Por defecto, una columna en móviles
-                    gap-8 // Espacio consistente entre elementos en todas las pantallas
+                    grid grid-cols-1
+                    gap-8
                     mt-10 text-center
-                    sm:mt-16 sm:grid-cols-2 // En sm, dos columnas
-                    md:grid-cols-3 // En md, tres columnas
+                    sm:mt-16 sm:grid-cols-2
+                    md:grid-cols-3
                     xl:mt-24
                 ">
                     {features.map((feature, index) => (
@@ -100,7 +103,6 @@ const FeatureSection = () => {
                             icon={feature.icon}
                             title={feature.title}
                             description={feature.description}
-                            // Retraso escalonado para cada tarjeta (0ms, 150ms, 300ms, ...)
                             delay={index * 150}
                         />
                     ))}
