@@ -16,7 +16,7 @@ import Gallery from "./Gallery";
 const LandingPage = () => {
     return (
         // Es importante tener overflow-x-hidden aquí para que las animaciones laterales no creen una barra de scroll
-        <div className="min-h-screen w-full overflow-x-hidden bg-white">
+        <div className="">
             <WhatsAppButton />
             <Navbar />
             <Hero />
