@@ -43,7 +43,7 @@ const Hero = () => {
                             className="text-3xl font-bold text-slate-800 sm:text-4xl md:text-5xl lg:text-6xl lg:leading-[1.2] opacity-0 animate-fade-in-up"
                             style={{ animationDelay: '0.2s' }}
                         >
-                            El Software para Estudio de Pilates más completo
+                            El Software para Estudio de Pilates y Multiactividad más completo
                         </h1>
 
                         <p
